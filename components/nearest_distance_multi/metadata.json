@@ -1,0 +1,73 @@
+{
+    "name": "nearest_distance_multi",
+    "title": "Multi-Result Nearest Distance",
+    "group": "Template",
+    "description": "This component calculates the nearest distance for multiple results",
+    "version": "0.0.1",
+    "icon": "component-default.svg",
+    "cartoEnvVars": [],
+    "inputs": [
+        {
+            "name": "input_main_table",
+            "title": "Input Main Table",
+            "description": "The table to add the column to",
+            "type": "Table"
+        },
+        {
+            "name": "geom_main_table",
+            "title": "Geometry Main Table",
+            "description": "The column containing geometries from main table",
+            "type": "Column",
+            "parent": "input_main_table"
+        },
+        {
+            "name": "id_main_table",
+            "title": "ID Main Table",
+            "description": "The column containing ID from main table",
+            "type": "Column",
+            "parent": "input_main_table"
+        },
+        {
+            "name": "input_second_table",
+            "title": "Input table",
+            "description": "The table to add the column to",
+            "type": "Table"
+        },
+        {
+            "name": "geom_second_table",
+            "title": "Geometry Second Table",
+            "description": "The column containing geometries from second table",
+            "type": "Column",
+            "parent": "input_second_table"
+        },
+        {
+            "name": "id_second_table",
+            "title": "ID Second Table",
+            "description": "The column containing ID from second table",
+            "type": "Column",
+            "parent": "input_second_table"
+        },
+        {
+            "name": "radius",
+            "title": "Radius constraint",
+            "description": "Radius coverage to identify nearest feature (in meter)",
+            "type": "Number",
+            "placeholder": "50"
+        },
+        {
+            "name": "number_result",
+            "title": "Maximum number of results",
+            "description": "Top nearest distance to identify",
+            "type": "Number",
+            "placeholder": "5"
+        }
+    ],
+    "outputs": [
+        {
+            "name": "output_table",
+            "title": "Output table",
+            "description": "The table with the column added",
+            "type": "Table"
+        }
+    ]
+}

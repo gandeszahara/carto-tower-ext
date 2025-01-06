@@ -1,0 +1,15 @@
+[
+    {
+        "id": 1,
+        "inputs": {
+            "input_main_table": "SAMPLE_CARTO_ADDRESS",
+            "geom_main_table": "GEOM",
+            "id_main_table": "UID",
+            "input_second_table": "SAMPLE_CARTO_FLOOD",
+            "geom_second_table": "COORDINATES",
+            "id_second_table": "CLASS",
+            "radius": "50",
+            "number_result": "5"
+        }
+    }
+]
