@@ -8,8 +8,8 @@
             "input_second_table": "SAMPLE_CARTO_FLOOD",
             "geom_second_table": "COORDINATES",
             "id_second_table": "CLASS",
-            "radius": "50",
-            "number_result": "5"
+            "radius": "10",
+            "number_result": "3"
         }
     }
 ]
