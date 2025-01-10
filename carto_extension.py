@@ -83,6 +83,10 @@ def create_metadata():
         metadata_file = os.path.join(components_folder, component, "metadata.json")
         with open(metadata_file, "r") as f:
             component_metadata = json.load(f)
+            component_metadata["group"] = metadata["title"]
+            component_metadata["cartoEnvVars"] = component_metadata.get(
+                "cartoEnvVars", []
+            )
             components.append(component_metadata)
 
         fullrun_file = os.path.join(components_folder, component, "src", "fullrun.sql")
@@ -99,17 +103,6 @@ def create_metadata():
 
     metadata["components"] = components
     return metadata
-
-
-env_var_names = [
-    "analyticsToolboxDataset",
-    "analyticsToolboxVersion",
-    "apiBaseUrl",
-    "accessToken",
-    "dataExportDefaultGCSBucket",
-    "bigqueryProjectId",
-    "bigqueryRegion",
-]
 
 
 def get_procedure_code_bq(component):
@@ -142,7 +135,7 @@ def get_procedure_code_bq(component):
         ]
     )
     procedure_code = f"""\
-        CREATE OR REPLACE PROCEDURE {WORKFLOWS_TEMP_PLACEHOLDER}.{component["procedureName"]}(
+        CREATE OR REPLACE PROCEDURE {WORKFLOWS_TEMP_PLACEHOLDER}.`{component["procedureName"]}`(
             {params_string},
             dry_run BOOLEAN,
             env_vars STRING
@@ -261,7 +254,6 @@ def get_procedure_code_sf(component):
         $$
         BEGIN
             {env_vars}
-            JSON_EXTRACT_PATH_TEXT
             IF (dry_run) THEN
                 BEGIN
                 {dryrun_code}
@@ -627,7 +619,7 @@ def check():
         component_metadata_file = os.path.join(component_folder, "metadata.json")
         with open(component_metadata_file, "r") as f:
             component_metadata = json.load(f)
-        required_fields = ["name", "title", "group", "description", "icon", "version"]
+        required_fields = ["name", "title", "description", "icon", "version"]
         for field in required_fields:
             assert (
                 field in component_metadata
@@ -635,12 +627,15 @@ def check():
     required_fields = [
         "name",
         "title",
-        "group",
+        "industry",
         "description",
         "icon",
         "version",
         "lastUpdate",
         "provider",
+        "author",
+        "license",
+        "components",
     ]
     for field in required_fields:
         assert field in metadata, f"Extension metadata is missing field '{field}'"
