@@ -6,10 +6,10 @@
             "geom_main_table": "GEOM",
             "id_main_table": "UID",
             "input_second_table": "SAMPLE_CARTO_FLOOD",
-            "geom_second_table": "COORDINATES",
+            "geom_second_table": "GEOM",
             "id_second_table": "CLASS",
-            "radius": "10",
-            "number_result": "3"
+            "radius": 10,
+            "number_result": 3
         }
     }
 ]
