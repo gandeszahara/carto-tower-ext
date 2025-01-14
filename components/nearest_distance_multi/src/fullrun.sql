@@ -36,5 +36,5 @@ WHERE
     RANK_NUM <= ' || :number_result|| ' -- Select only the X nearest secondary points for each main points
 ORDER BY 
     MAIN_ID, RANK_NUM; -- Order by address and distance rank
-);
+)
 ';
