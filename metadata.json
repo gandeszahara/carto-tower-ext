@@ -2,24 +2,32 @@
     "name": "nearest_distance_multi",
     "title": "Narest Distance Multiple Result",
     "industry": "Insurance",
-    "group": "",
     "description": "Extension for calculating the nearest distance for multiple results.",
     "icon": "extension-default.svg",
     "version": "1.0.0",
-    "lastUpdate": "2024-01-31",
+    "lastUpdate": "2025-01-14",
     "provider": "snowflake",
+    "author": {
+        "value": "CARTO SE - Gandes",
+        "link": {
+            "label": "CARTO",
+            "href": "https://carto.com"
+        }
+    },
+    "license": {
+        "value": "CARTO Proprietary",
+        "link": {
+            "label": "CARTO Proprietary",
+            "href": "https://carto.com/legal"
+        }
+    },
     "details": [
         {
-            "name": "License",
-            "value": "Apache 2.0"
-        },
-        {
-            "name": "Author",
-            "value": "Firdausi Zahara Gandes"
-        },
-        {
             "name": "Purpose",
-            "value": "Extension component built for Tower Insurance New Zealand"
+            "link": {
+                "label": "Extension component built for Tower Insurance New Zealand",
+                "href": "https://carto.com/"
+            }
         }
     ],
     "components": [

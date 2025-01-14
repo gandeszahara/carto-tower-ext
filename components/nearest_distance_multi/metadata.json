@@ -1,7 +1,6 @@
 {
     "name": "nearest_distance_multi",
     "title": "Multi-Result Nearest Distance",
-    "group": "Template",
     "description": "This component calculates the nearest distance for multiple results",
     "version": "0.0.1",
     "icon": "component-default.svg",
