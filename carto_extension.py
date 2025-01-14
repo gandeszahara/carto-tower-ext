@@ -500,7 +500,14 @@ def _get_test_results(metadata, component):
                     if inputparam["type"] == "Table":
                         tablename = f"'{workflows_temp}._test_{component['name']}_{param_value}'"
                         param_values.append(tablename)
-                    elif inputparam["type"] in ["String", "Selection"]:
+                    elif inputparam["type"] in [
+                        "String",
+                        "Selection",
+                        "StringSql",
+                        "Json",
+                        "GeoJson",
+                        "Column",
+                    ]:
                         param_values.append(f"'{param_value}'")
                     else:
                         param_values.append(param_value)
@@ -524,6 +531,7 @@ def _get_test_results(metadata, component):
                     rows = [{k: v for k, v in row.items()} for row in result]
                     component_results[test_id][output["name"]] = rows
             else:
+                print(query)
                 cur = sf_client().cursor()
                 cur.execute(query)
                 for output in component["outputs"]:
