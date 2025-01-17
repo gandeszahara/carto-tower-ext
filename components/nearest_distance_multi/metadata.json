@@ -2,7 +2,7 @@
     "name": "nearest_distance_multi",
     "title": "Multi-Result Nearest Distance",
     "description": "This component calculates the nearest distance for multiple results",
-    "version": "0.0.1",
+    "version": "0.0.2",
     "icon": "component-default.svg",
     "cartoEnvVars": [],
     "inputs": [
