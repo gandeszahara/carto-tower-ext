@@ -59,6 +59,12 @@
             "description": "Top nearest distance to identify",
             "type": "Number",
             "placeholder": "5"
+        },
+        {
+            "name": "output_path",
+            "title": "Output Table",
+            "description": "Snowflake output table",
+            "type": "Table"
         }
     ],
     "outputs": [
