@@ -9,8 +9,7 @@
             "geom_second_table": "GEOM",
             "id_second_table": "CLASS",
             "radius": 10,
-            "number_result": 3,
-            "output_path": "TOWER.CARTO_DATA_INPUT.TEST_EXT_COMPONENT"
+            "number_result": 3
         }
     }
 ]

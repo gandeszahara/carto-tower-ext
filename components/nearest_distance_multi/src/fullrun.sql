@@ -2,7 +2,7 @@
 ---------------------------------------------------------
 
 EXECUTE IMMEDIATE '
-  CREATE TABLE IF NOT EXISTS OR REPLACE TABLE ' || :output_path || ' AS
+  CREATE TABLE IF NOT EXISTS OR REPLACE TABLE ' || :output_table || ' AS
     WITH nearest AS (
         SELECT
             a.' || :geom_main_table|| ',
