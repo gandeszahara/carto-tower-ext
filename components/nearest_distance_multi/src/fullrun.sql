@@ -2,12 +2,12 @@
 ---------------------------------------------------------
 
 EXECUTE IMMEDIATE '
-  CREATE TABLE IF NOT EXISTS OR REPLACE TABLE ' || :output_table || ' AS
+    CREATE TABLE IF NOT EXISTS ' || :output_table || ' AS
     WITH nearest AS (
         SELECT
-            a.' || :geom_main_table|| ',
+            a.' || :geom_main_table|| ' AS MAIN_GEOM,
             b.' || :geom_second_table|| ' AS SECOND_GEOM,
-            a.' || :id_main_table|| ',
+            a.' || :id_main_table|| ' AS MAIN_ID,
             b.' || :id_second_table|| ' AS SECOND_ID,
             a.* EXCLUDE(' || :geom_main_table|| ', ' || :id_main_table|| '),
             b.* EXCLUDE(' || :geom_second_table|| ', ' || :id_second_table|| '),
@@ -19,7 +19,7 @@ EXECUTE IMMEDIATE '
     rank AS (
         SELECT
             *,
-            ROW_NUMBER() OVER (PARTITION BY nearest.' || :id_main_table|| ' ORDER BY DISTANCE) AS RANK_NUM
+            ROW_NUMBER() OVER (PARTITION BY MAIN_ID ORDER BY DISTANCE) AS RANK_NUM
         FROM
             nearest
     )
@@ -30,4 +30,4 @@ EXECUTE IMMEDIATE '
     WHERE
         RANK_NUM <= ' || :number_result|| '
     ORDER BY
-       rank.' || :id_main_table|| ', RANK_NUM';
+        MAIN_ID, RANK_NUM';
