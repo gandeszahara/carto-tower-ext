@@ -4,9 +4,9 @@
 EXECUTE IMMEDIATE '
 CREATE TABLE IF NOT EXISTS ' || :output_table || '
 AS SELECT *, 
-"POINT" as second_geom,
-"xx" as second_id,
-100 as distance
+''POINT'' AS SECOND_GEOM,
+''xx'' AS SECOND_ID,
+100 AS DISTANCE
 FROM ' || :input_main_table || '
 WHERE 1 = 0;
 ';
